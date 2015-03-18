@@ -4,7 +4,7 @@ email:       contact@maisasolutions
 author:      Chandan Benjaram
 description: "Maisa Solutions is your ideal IT partner offering various Information Technology Services and Products."
 baseurl:     "" # the subpath of your site, e.g. /blog/
-url:         "http://imaginationcoder.github.io"
+url:         "http://blog.maisasolutions.com"
 
 # Google analytics
 google_analytics:

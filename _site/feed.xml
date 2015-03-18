@@ -3,16 +3,16 @@
   <channel>
     <title>Maisa Solutions Blog</title>
     <description>Maisa Solutions is your ideal IT partner offering various Information Technology Services and Products.</description>
-    <link>http://imaginationcoder.github.io/</link>
-    <atom:link href="http://imaginationcoder.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <link>http://blog.maisasolutions.com/</link>
+    <atom:link href="http://blog.maisasolutions.com/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
         <title>Application Programming Interface Security</title>
         <description>&lt;iframe src=&quot;https://onedrive.live.com/embed?cid=4883444B527AB856&amp;resid=4883444B527AB856%21144&amp;authkey=AHfcaDH7lrYXHao&amp;em=2&quot; width=&quot;700&quot; height=&quot;600&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;
 </description>
-        <pubDate>Tue, 17 Mar 2015 10:44:38 +0530</pubDate>
-        <link>http://imaginationcoder.github.io/rails/security/2015/03/17/application-programming-interface-security/</link>
-        <guid isPermaLink="true">http://imaginationcoder.github.io/rails/security/2015/03/17/application-programming-interface-security/</guid>
+        <pubDate>Sun, 03 Mar 2013 10:44:38 +0530</pubDate>
+        <link>http://blog.maisasolutions.com/rails/security/2013/03/03/application-programming-interface-security/</link>
+        <guid isPermaLink="true">http://blog.maisasolutions.com/rails/security/2013/03/03/application-programming-interface-security/</guid>
       </item>
     
   </channel>
