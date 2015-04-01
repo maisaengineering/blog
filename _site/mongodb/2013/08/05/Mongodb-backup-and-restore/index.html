@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Maisa Solutions Blog</title>
+    <title>Mongo backup and restore &#8211; Maisa Solutions Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Maisa Solutions is your ideal IT partner offering various Information Technology Services and Products.">
     <meta name="author" content="Maisa Solutions">
-    
-    <link rel="canonical" href="http://blog.maisasolutions.com/404.html">
+    <meta name="keywords" content="mongodb">
+    <link rel="canonical" href="http://blog.maisasolutions.com/mongodb/2013/08/05/Mongodb-backup-and-restore/">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/pixyll.css" type="text/css">
@@ -25,9 +25,9 @@
     <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Maisa Solutions Blog">
+    <meta property="og:title" content="Mongo backup and restore">
     <meta property="og:description" content="Maisa Solutions is your ideal IT partner offering various Information Technology Services and Products.">
-    <meta property="og:url" content="http://blog.maisasolutions.com/404.html">
+    <meta property="og:url" content="http://blog.maisasolutions.com/mongodb/2013/08/05/Mongodb-backup-and-restore/">
     <meta property="og:site_name" content="Maisa Solutions Blog">
 
     <!-- Icons -->
@@ -47,8 +47,8 @@
     <link rel="icon" type="image/png" href="favicon-32x32.png?v=2" sizes="32x32">
 </head>
 
-<body>
-  <div class="site-wrap center">
+<body class="animated fade-in-down">
+  <div class="site-wrap">
     <header class="site-header px2 px-responsive">
   <div class="mt2 wrap">
     <div class="measure">
@@ -88,14 +88,79 @@
 
     <div class="post p2 p-responsive wrap" role="main">
       <div class="measure">
-        <h1 id="404">404</h1>
+        <!-- 
 
-<p>Sorry, we can&rsquo;t seem to find this page&rsquo;s.</p>
 
-<div class="mt3">
-  <a href="/" class="button button-blue button-big">Home</a>
-  <a href="/contact/" class="button button-blue button-big">Contact</a>
+ -->
+
+<div class="post-header mb2">
+  <h1>Mongo backup and restore</h1>
+  <span class="post-meta">Aug 5, 2013</span><br>
+  
+  <!-- <span class="post-meta small">1 minute read</span> -->
 </div>
+
+<article class="post-content">
+  <p>To take backup of mongodb database</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>monogodb -db database_name > database_name.bson
+</code></pre>
+</div>
+
+<p>To restore backup file to database</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>mongorestore -db database_name folder_name
+</code></pre>
+</div>
+
+<p>Take backup from heroku MongoHQ using heroku-mongo-sync</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>heroku mongo:pull --app app_name
+</code></pre>
+</div>
+
+<p>Take backup from heroku MongoHQ from MongoHQ url</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>mongodump -h hatch.mongohq.com:27021 -d database_name -u admin -p sekret -o ~/tmp/mongodump
+</code></pre>
+</div>
+
+<p>Restore heroku MongoHQ database with backup </p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>mongorestore -h hatch.mongohq.com:27021 -d database_name -u admin -p sekret ~/tmp/mongodump/database_name
+</code></pre>
+</div>
+
+<h2 class="gray">Comments</h2>
+
+<div>
+<div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+<p></div></p>
+
+</article>
+
+
+
+
+
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname  = 'true';
+    var disqus_identifier = '/mongodb/2013/08/05/Mongodb-backup-and-restore';
+
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
 
       </div>
     </div>

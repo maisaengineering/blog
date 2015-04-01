@@ -7,12 +7,127 @@
     <atom:link href="http://blog.maisasolutions.com/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Mongo backup and restore</title>
+        <description>&lt;p&gt;To take backup of mongodb database&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;monogodb -db database_name &gt; database_name.bson
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;To restore backup file to database&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mongorestore -db database_name folder_name
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Take backup from heroku MongoHQ using heroku-mongo-sync&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;heroku mongo:pull --app app_name
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Take backup from heroku MongoHQ from MongoHQ url&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mongodump -h hatch.mongohq.com:27021 -d database_name -u admin -p sekret -o ~/tmp/mongodump
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Restore heroku MongoHQ database with backup &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mongorestore -h hatch.mongohq.com:27021 -d database_name -u admin -p sekret ~/tmp/mongodump/database_name
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 class=&quot;gray&quot;&gt;Comments&lt;/h2&gt;
+
+&lt;div&gt;
+&lt;div id=&quot;disqus_thread&quot; aria-live=&quot;polite&quot;&gt;&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;http://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;/div&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 05 Aug 2013 10:44:38 +0530</pubDate>
+        <link>http://blog.maisasolutions.com/mongodb/2013/08/05/Mongodb-backup-and-restore/</link>
+        <guid isPermaLink="true">http://blog.maisasolutions.com/mongodb/2013/08/05/Mongodb-backup-and-restore/</guid>
+      </item>
+    
+      <item>
+        <title>Getting started with git</title>
+        <description>&lt;p&gt;&lt;span class=&quot;sub_heading&quot;&gt;Global configuration file&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;Git allows you to store global settings in the .gitconfig file. This file is located in the user home directory. Git stores the committer and author of a change in each commit.&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;sub_heading&quot;&gt;User Configuration &lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;Configure your user and email for Git via the following command. &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git config --global user.name &quot;&lt;span class=&quot;no&quot;&gt;Your Name Here&lt;/span&gt;&quot;
+&lt;span class=&quot;c&quot;&gt;# Sets the default name for git to use when you commit&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git config --global user.email &quot;&lt;span class=&quot;no&quot;&gt;your_email@youremail.com&lt;/span&gt;&quot;
+&lt;span class=&quot;c&quot;&gt;# Sets the default email for git to use when you commit&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;span class=&quot;sub_heading&quot;&gt;Getting started with Git&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;Fire up a terminal, and type (replace Rails_app with name of the your application):&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;rails new Rails_app&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Afterwards, navigate into this new directory by typing:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;cd Rails_app&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Initialize Git inside this directory by typing:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git init&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Create a new file by typing:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;touch README&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Add this file to the repository by typing:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git add README&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Now, let&amp;rsquo;s make a change to this file, by writing something to it&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;echo &quot;Hello, is this on Github?!&quot; &gt; README&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Now, we need to commit. Committing is a small message of what you just did:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git commit -m &#39;Initial commit&#39;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Next, we need to add the online Github repository (the origin)&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git remote add origin git@github.com:User/Rails_app.git&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;And finally, let&amp;rsquo;s push it to Github.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git push origin master&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Now you&amp;rsquo;ve added your first file to Github! Continue to learn more about how to work with Git.&lt;/p&gt;
+
+&lt;h2 class=&quot;gray&quot;&gt;Comments&lt;/h2&gt;
+
+&lt;div&gt;
+&lt;div id=&quot;disqus_thread&quot; aria-live=&quot;polite&quot;&gt;&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;http://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;/div&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 15 Apr 2013 10:44:38 +0530</pubDate>
+        <link>http://blog.maisasolutions.com/github/2013/04/15/Getting-started-with-git/</link>
+        <guid isPermaLink="true">http://blog.maisasolutions.com/github/2013/04/15/Getting-started-with-git/</guid>
+      </item>
+    
+      <item>
         <title>Application Programming Interface Security</title>
         <description>&lt;iframe src=&quot;https://onedrive.live.com/embed?cid=4883444B527AB856&amp;resid=4883444B527AB856%21144&amp;authkey=AHfcaDH7lrYXHao&amp;em=2&quot; width=&quot;700&quot; height=&quot;600&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;
 </description>
         <pubDate>Sun, 03 Mar 2013 10:44:38 +0530</pubDate>
-        <link>http://blog.maisasolutions.com/rails/security/2013/03/03/application-programming-interface-security/</link>
-        <guid isPermaLink="true">http://blog.maisasolutions.com/rails/security/2013/03/03/application-programming-interface-security/</guid>
+        <link>http://blog.maisasolutions.com/rails-security/2013/03/03/application-programming-interface-security/</link>
+        <guid isPermaLink="true">http://blog.maisasolutions.com/rails-security/2013/03/03/application-programming-interface-security/</guid>
       </item>
     
   </channel>

@@ -1,7 +1,7 @@
 # Site settings
 title:       Maisa Solutions Blog
 email:       contact@maisasolutions.com
-author:      Chandan Benjaram
+author:      Maisa Solutions
 description: "Maisa Solutions is your ideal IT partner offering various Information Technology Services and Products."
 baseurl:     "" # the subpath of your site, e.g. /blog/
 url:         "http://blog.maisasolutions.com"
@@ -19,7 +19,7 @@ show_post_footers:  false
 disqus_shortname: true
 
 # Social icons
-show_social_icons: false
+show_social_icons: true
 github_username:
 stackoverflow_id:
 twitter_username:
@@ -33,7 +33,7 @@ flattr_button:
 show_sharing_icons: false
 share_text: 'Share this post!'
 # Change to 'true' to enable individual icons
-share_facebook: false
+share_facebook: true
 share_twitter: false
 share_googleplus: false
 share_linkedin: false
