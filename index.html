@@ -9,7 +9,7 @@ layout: default
       <div class="post">
         <a href="{{ post.url | prepend: site.baseurl }}" class="post-link">
           <h4 class="h4 post-title">{{ post.title }}</h4>
-          <p class="post-meta"><span class="post_author_name">by {{ post.author }}</span>, {{ post.date | date: "%b %-d, %Y" }}</p>
+          <p class="post-meta">by<span class="post_author_name"> {{ post.author }}</span>, {{ post.date | date: "%b %-d %Y" }}</p>
           <p class="post-summary">
             {% if post.summary %}
               {{ post.summary }}

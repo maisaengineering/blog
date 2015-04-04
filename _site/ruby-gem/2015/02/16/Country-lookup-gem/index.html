@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Country lookup gem &#8211; Maisa Solutions Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Country Lookup is a gem to validate country information such as phone number, Postal code, and help's in extracting phone numbers based on country from a given string">
+    <meta name="author" content="Maisa Solutions">
+    <meta name="keywords" content="ruby-gem">
+    <link rel="canonical" href="http://blog.maisasolutions.com/ruby-gem/2015/02/16/Country-lookup-gem/">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css" type="text/css">
+    <link rel="stylesheet" href="/css/main.css" type="text/css">
+
+    <!-- Fonts -->
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    
+
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Country lookup gem">
+    <meta property="og:description" content="Maisa Solutions is your ideal IT partner offering various Information Technology Services and Products.">
+    <meta property="og:url" content="http://blog.maisasolutions.com/ruby-gem/2015/02/16/Country-lookup-gem/">
+    <meta property="og:site_name" content="Maisa Solutions Blog">
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="favicon-192x192.png?v=2" sizes="192x192">
+    <link rel="icon" type="image/png" href="favicon-160x160.png?v=2" sizes="160x160">
+    <link rel="icon" type="image/png" href="favicon-96x96.png?v=2" sizes="96x96">
+    <link rel="icon" type="image/png" href="favicon-16x16.png?v=2" sizes="16x16">
+    <link rel="icon" type="image/png" href="favicon-32x32.png?v=2" sizes="32x32">
+</head>
+
+<body class="animated fade-in-down">
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://blog.maisasolutions.com" class="site-title"><img src="/images/logo.png"/> </a>
+      <nav class="site-nav right">
+        <a href="/about/">About</a>
+<a href="/contact/">Contact</a>
+
+      </nav>
+      <div class="clearfix"></div>
+      
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        <!-- 
+ -->
+
+<div class="post-header mb2">
+  <h1>Country lookup gem</h1>
+  <span class="post-meta">by<span class="post_author_name"> Jagadishwer</span>, Feb 16 2015</span><br>
+  
+  <!-- <span class="post-meta small">2 minute read</span> -->
+</div>
+
+<article class="post-content">
+  <p>To validate country informations such as phone number, Postal code.It also help&rsquo;s in Parsing phone numbers based on country from a given string.</p>
+
+<h3 id="installation">Installation</h3>
+
+<p>Add this line to your application&rsquo;s Gemfile:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="s1">&#39;country_lookup&#39;</span>
+</code></pre></div>
+<p>And then execute:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ bundle
+</code></pre></div>
+<p>Or install it yourself as:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ gem install country_lookup
+</code></pre></div>
+<h3 id="usage">Usage</h3>
+
+<p>This gem has two modules.<br>
+   1. Country<br>
+   2. Phone Number</p>
+
+<h1 id="country">Country</h1>
+
+<p>This module of gem helps to get countries information such as alpha2, country<em>code, international</em>prefix, national<em>number</em>lengths, postcode_regex etc..</p>
+
+<h3 id="all">all</h3>
+
+<p>It helps to get array of all the countries information.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"> <span class="no">Country</span><span class="o">.</span><span class="n">all</span>
+ <span class="o">=&gt;</span> <span class="o">[</span><span class="p">{</span><span class="s2">&quot;alpha2&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;AF&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;Afghanistan&quot;</span><span class="p">,</span> <span class="s2">&quot;country_code&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;93&quot;</span><span class="p">,</span> <span class="s2">&quot;international_prefix&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;00&quot;</span><span class="p">,</span> <span class="s2">&quot;national_destination_code_lengths&quot;</span><span class="o">=&gt;[</span><span class="mi">2</span><span class="o">]</span><span class="p">,</span> <span class="s2">&quot;national_number_lengths&quot;</span><span class="o">=&gt;[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="o">]</span><span class="p">,</span> <span class="s2">&quot;postal_code&quot;</span><span class="o">=&gt;</span><span class="kp">true</span><span class="p">,</span> <span class="s2">&quot;postcode_regex&quot;</span><span class="o">=&gt;</span><span class="kp">nil</span><span class="p">},</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="n">.</span><span class="o">]</span>
+</code></pre></div>
+<h3 id="names">names</h3>
+
+<p>To get array of all countries names. </p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"> <span class="no">Country</span><span class="o">.</span><span class="n">names</span>
+ <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;Afghanistan&quot;</span><span class="p">,</span> <span class="s2">&quot;Aland Islands&quot;</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="n">.</span><span class="o">.]</span>
+</code></pre></div>
+<h3 id="with-postal-code">with postal code</h3>
+
+<p>To get all Countries with Postal codes.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"> <span class="no">Country</span><span class="o">.</span><span class="n">with_postal_code</span>
+ <span class="o">=&gt;</span> <span class="p">{</span><span class="s2">&quot;AF&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;Afghanistan&quot;</span><span class="p">,</span> <span class="s2">&quot;AX&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;Aland Islands&quot;</span><span class="p">,</span>  <span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="p">}</span>
+</code></pre></div>
+<h3 id="without-postal-code">without postal code</h3>
+
+<p>To get all Countries with Postal codes.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"> <span class="no">Country</span><span class="o">.</span><span class="n">with_postal_code</span>
+ <span class="o">=&gt;</span> <span class="p">{</span><span class="s2">&quot;AO&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;Angola&quot;</span><span class="p">,</span> <span class="s2">&quot;AG&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;Antigua and Barbuda&quot;</span><span class="p">,</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="n">.</span><span class="p">}</span>
+</code></pre></div>
+<h3 id="alpha2">alpha2</h3>
+
+<p>To get alpha2 value of given country.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"> <span class="no">Country</span><span class="o">.</span><span class="n">alpha2</span><span class="p">(</span><span class="s2">&quot;United States&quot;</span><span class="p">)</span>
+ <span class="o">=&gt;</span> <span class="s1">&#39;US&#39;</span>
+</code></pre></div>
+<h1 id="phone-number:">Phone Number:</h1>
+
+<p>This Module of Gem helps in identifying exact phone number and country code form a given string. Below are some of the methods.</p>
+
+<h3 id="extract:">extract:</h3>
+
+<p>From a given string it extract the phone number.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"> <span class="no">PhoneNumber</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="s2">&quot;+1(333) 555-2222&quot;</span><span class="p">)</span>
+ <span class="o">=&gt;</span> <span class="mi">13335552222</span>
+</code></pre></div>
+<h3 id="parse:">parse:</h3>
+
+<p>It help to differentiate country code and phone number.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"> <span class="no">PhoneNumber</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;+1(333) 555-2222&quot;</span><span class="p">)</span>
+ <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:country_code</span><span class="o">=&gt;</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="ss">:number</span><span class="o">=&gt;</span><span class="s2">&quot;3335552222&quot;</span><span class="p">}</span>
+</code></pre></div>
+<h3 id="prefix-country-code:">prefix country code:</h3>
+
+<p>It help&rsquo;s to prepend country code to a given phone number as specified by the end user. If no country is specified, by default it assumes as &lsquo;US&rsquo;.</p>
+
+<p>By default it prefixes United State&rsquo;s country code.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby">   <span class="no">PhoneNumber</span><span class="o">.</span><span class="n">prefix_country_code</span><span class="p">(</span><span class="s2">&quot;3335552222&quot;</span><span class="p">)</span>
+   <span class="o">=&gt;</span> <span class="mi">13335552222</span>
+</code></pre></div>
+<p>If you want to prefix India&rsquo;s country code.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"> <span class="no">PhoneNumber</span><span class="o">.</span><span class="n">prefix_country_code</span><span class="p">(</span><span class="s2">&quot;3335552222&quot;</span><span class="p">,</span> <span class="s1">&#39;IN&#39;</span><span class="p">)</span>
+ <span class="o">=&gt;</span> <span class="s2">&quot;913335552222&quot;</span>
+</code></pre></div>
+<p>If you want to prefix United Kingdom&rsquo;s country code.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"> <span class="no">PhoneNumber</span><span class="o">.</span><span class="n">prefix_country_code</span><span class="p">(</span><span class="s2">&quot;3335552222&quot;</span><span class="p">,</span> <span class="s1">&#39;GB&#39;</span><span class="p">)</span>
+  <span class="o">=&gt;</span> <span class="s2">&quot;443335552222&quot;</span>
+</code></pre></div>
+<h3 id="country_code">country_code</h3>
+
+<p>it help to get country code for a given country</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby">  <span class="no">PhoneNumber</span><span class="o">.</span><span class="n">country_code</span><span class="p">(</span><span class="s1">&#39;GB&#39;</span><span class="p">)</span>
+   <span class="o">=&gt;</span> <span class="s2">&quot;44&quot;</span>
+</code></pre></div>
+</article>
+
+
+
+
+
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname  = 'maisasolutions';
+    var disqus_identifier = '/ruby-gem/2015/02/16/Country-lookup-gem';
+
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="p2 wrap">
+        <div class="measure mt1 center">
+            <p class="post-summary">
+                Have an idea? Let us help you make it real! Our IT experts are <a href="/contact">here</a> to work with you.
+            </p>
+            <p align="center">
+                <small>
+                    &#0169;2015 Miasa&#0153; Solutions All rights reserved.
+                </small>
+            </p>
+        </div>
+    </div>
+</footer>
+
+
+
+</body>
+</html>

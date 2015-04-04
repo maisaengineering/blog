@@ -41,11 +41,4 @@ Restore heroku MongoHQ database with backup
 </code></pre>
 </div>
 
-
-<h2 class="gray">Comments</h2>
-
-<div>
-<div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-</div>
     

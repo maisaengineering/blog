@@ -64,10 +64,3 @@ And finally, let's push it to Github.
 Now you've added your first file to Github! Continue to learn more about how to work with Git.
 
 
-<h2 class="gray">Comments</h2>
-
-<div>
-<div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-</div>
-

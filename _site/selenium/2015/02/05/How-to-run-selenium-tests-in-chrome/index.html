@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Getting started with git &#8211; Maisa Solutions Blog</title>
+    <title>How to run selenium tests in chrome &#8211; Maisa Solutions Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Maisa Solutions is your ideal IT partner offering various Information Technology Services and Products.">
     <meta name="author" content="Maisa Solutions">
-    <meta name="keywords" content="github">
-    <link rel="canonical" href="http://blog.maisasolutions.com/github/2013/04/15/Getting-started-with-git/">
+    <meta name="keywords" content="selenium">
+    <link rel="canonical" href="http://blog.maisasolutions.com/selenium/2015/02/05/How-to-run-selenium-tests-in-chrome/">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/pixyll.css" type="text/css">
@@ -24,9 +24,9 @@
     <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Getting started with git">
+    <meta property="og:title" content="How to run selenium tests in chrome">
     <meta property="og:description" content="Maisa Solutions is your ideal IT partner offering various Information Technology Services and Products.">
-    <meta property="og:url" content="http://blog.maisasolutions.com/github/2013/04/15/Getting-started-with-git/">
+    <meta property="og:url" content="http://blog.maisasolutions.com/selenium/2015/02/05/How-to-run-selenium-tests-in-chrome/">
     <meta property="og:site_name" content="Maisa Solutions Blog">
 
     <!-- Icons -->
@@ -70,67 +70,52 @@
  -->
 
 <div class="post-header mb2">
-  <h1>Getting started with git</h1>
-  <span class="post-meta">by<span class="post_author_name"> Sukendhar</span>, Apr 15 2013</span><br>
+  <h1>How to run selenium tests in chrome</h1>
+  <span class="post-meta">by<span class="post_author_name"> Sukendhar</span>, Feb 5 2015</span><br>
   
   <!-- <span class="post-meta small">1 minute read</span> -->
 </div>
 
 <article class="post-content">
-  <p><span class="sub_heading">Global configuration file</span></p>
+  <p>Before starting, we&rsquo;ll need to download the latest ChromeDriver binary executable. Once we have it, we&rsquo;ll need to tell Selenium where it is.</p>
 
-<p>Git allows you to store global settings in the .gitconfig file. This file is located in the user home directory. Git stores the committer and author of a change in each commit.</p>
+<p>Add it to the System PATH
+or
+Specify it in the Selenium setup
+or
+Launch ChromeDriver and connect to it via Selenium Remote</p>
 
-<p><span class="sub_heading">User Configuration </span></p>
+<p>Create one file as chrome.rb</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">&#39;selenium-webdriver&#39;</span>
+<span class="nb">require</span> <span class="s1">&#39;rspec/expectations&#39;</span>
+<span class="kp">include</span> <span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span>
 
-<p>Configure your user and email for Git via the following command. </p>
+<span class="k">def</span> <span class="nf">setup</span>
+  <span class="no">Selenium</span><span class="o">::</span><span class="no">WebDriver</span><span class="o">::</span><span class="no">Chrome</span><span class="o">::</span><span class="no">Service</span><span class="o">.</span><span class="n">executable_path</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="no">Dir</span><span class="o">.</span><span class="n">pwd</span><span class="p">,</span> <span class="s1">&#39;chromedriver&#39;</span><span class="p">)</span>
+  <span class="vi">@driver</span> <span class="o">=</span> <span class="no">Selenium</span><span class="o">::</span><span class="no">WebDriver</span><span class="o">.</span><span class="n">for</span> <span class="ss">:chrome</span>
+<span class="k">end</span>
 
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>git config --global user.name "<span class="no">Your Name Here</span>"
-<span class="c"># Sets the default name for git to use when you commit</span>
-<span class="nv">$ </span>git config --global user.email "<span class="no">your_email@youremail.com</span>"
-<span class="c"># Sets the default email for git to use when you commit</span>
-</code></pre>
-</div>
+<span class="k">def</span> <span class="nf">teardown</span>
+  <span class="vi">@driver</span><span class="o">.</span><span class="n">quit</span>
+<span class="k">end</span>
 
-<p><span class="sub_heading">Getting started with Git</span></p>
+<span class="k">def</span> <span class="nf">run</span>
+  <span class="n">setup</span>
+  <span class="k">yield</span>
+  <span class="n">teardown</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Notice that in <b>setup</b> we are telling Selenium where the ChromeDriver exectuable is with <b>executable_path</b> before instantiating the browser.</p>
 
-<p>Fire up a terminal, and type (replace Rails_app with name of the your application):</p>
+<p>Now add a simple test to chrome.rb</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">run</span> <span class="k">do</span>
+  <span class="vi">@driver</span><span class="o">.</span><span class="n">get</span> <span class="s1">&#39;http://example.com/&#39;</span>
+  <span class="n">expect</span><span class="p">(</span><span class="vi">@driver</span><span class="o">.</span><span class="n">title</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">eql</span> <span class="s1">&#39;The Internet&#39;</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>If we save this file and run it (e.g., ruby chrome.rb) it will launch an instance of Chrome.</p>
 
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>rails new Rails_app</code></pre></div>
-
-<p>Afterwards, navigate into this new directory by typing:</p>
-
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>cd Rails_app</code></pre></div>
-
-<p>Initialize Git inside this directory by typing:</p>
-
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>git init</code></pre></div>
-
-<p>Create a new file by typing:</p>
-
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>touch README</code></pre></div>
-
-<p>Add this file to the repository by typing:</p>
-
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>git add README</code></pre></div>
-
-<p>Now, let&rsquo;s make a change to this file, by writing something to it</p>
-
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>echo "Hello, is this on Github?!" > README</code></pre></div>
-
-<p>Now, we need to commit. Committing is a small message of what you just did:</p>
-
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>git commit -m 'Initial commit'</code></pre></div>
-
-<p>Next, we need to add the online Github repository (the origin)</p>
-
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>git remote add origin git@github.com:User/Rails_app.git</code></pre></div>
-
-<p>And finally, let&rsquo;s push it to Github.</p>
-
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>git push origin master</code></pre></div>
-
-<p>Now you&rsquo;ve added your first file to Github! Continue to learn more about how to work with Git.</p>
+<p>Now run your test cases.</p>
 
 </article>
 
@@ -142,7 +127,7 @@
   <div id="disqus_thread"></div>
   <script type="text/javascript">
     var disqus_shortname  = 'maisasolutions';
-    var disqus_identifier = '/github/2013/04/15/Getting-started-with-git';
+    var disqus_identifier = '/selenium/2015/02/05/How-to-run-selenium-tests-in-chrome';
 
     (function() {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
