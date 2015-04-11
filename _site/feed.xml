@@ -7,6 +7,25 @@
     <atom:link href="http://blog.maisasolutions.com/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>How to write blog content</title>
+        <description>&lt;p&gt;Literally anyone can blog as long as they truly know the subject matter they&amp;rsquo;re writing about. And since you&amp;rsquo;re an expert in your industry, there&amp;rsquo;s no longer any reason you can&amp;rsquo;t sit down every day and hammer out an excellent blog post.&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;sub_heading&quot;&gt;&lt;b&gt;Simple Formulas to Follow&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;The Article must contain 400 - 450 words.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Every Article require an Catchy Title and it must 60 - 65 characters only. The title must be relevant to the Article body.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The Articles Content must not allow the promotion of your company or product in article body.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The Keywords must repeat once to twice in the entire Article Body.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The Article Content must be like Info giving to the User and must not highlight our website directly.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Sat, 11 Apr 2015 10:44:38 +0530</pubDate>
+        <link>http://blog.maisasolutions.com/blog/2015/04/11/How-to-write-Blog-Content/</link>
+        <guid isPermaLink="true">http://blog.maisasolutions.com/blog/2015/04/11/How-to-write-Blog-Content/</guid>
+      </item>
+    
+      <item>
         <title>Country lookup gem</title>
         <description>&lt;p&gt;To validate country informations such as phone number, Postal code.It also help&amp;rsquo;s in Parsing phone numbers based on country from a given string.&lt;/p&gt;
 
