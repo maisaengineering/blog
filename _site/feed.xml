@@ -7,6 +7,33 @@
     <atom:link href="http://blog.maisasolutions.com/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Capturing &quot;CAPTCHA&quot; in Selenium IDE by INPUT BOX method</title>
+        <description>&lt;p&gt;If you are automating the app registration using Selenium IDE that contains captchas, record and replay would not work because the captchas would change every time new user registers into the application. &lt;/p&gt;
+
+&lt;p&gt;This can be achieved by using &lt;b&gt;storeEval&lt;/b&gt; command. The execution of the automation script stops at that point, waits for the manual entry of code and it resumes execution of subsequent commands.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/selenium_captcha.png&quot;/&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Source code:&lt;/b&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;storeEval&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/td&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;    &amp;lt;td&amp;gt;prompt(&amp;amp;quot;Please enter captcha&amp;amp;quot;);&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;captcha&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/td&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/td&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;    &amp;lt;td&amp;gt;/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/*[&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;hip&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/td&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;    &amp;lt;td&amp;gt;${captcha}&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/tr&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 15 Apr 2015 11:25:55 +0530</pubDate>
+        <link>http://blog.maisasolutions.com/2015/04/15/Capturing-CAPTCHA-in-selenium-IDE-by-INPUT-BOX-method</link>
+        <guid isPermaLink="true">http://blog.maisasolutions.com/2015/04/15/Capturing-CAPTCHA-in-selenium-IDE-by-INPUT-BOX-method</guid>
+      </item>
+    
+      <item>
         <title>How to write blog content</title>
         <description>&lt;p&gt;Literally anyone can blog as long as they truly know the subject matter they&amp;rsquo;re writing about. And since you&amp;rsquo;re an expert in your industry, there&amp;rsquo;s no longer any reason you can&amp;rsquo;t sit down every day and hammer out an excellent blog post.&lt;/p&gt;
 
@@ -21,8 +48,8 @@
 &lt;/ol&gt;
 </description>
         <pubDate>Sat, 11 Apr 2015 10:44:38 +0530</pubDate>
-        <link>http://blog.maisasolutions.com/blog/2015/04/11/How-to-write-Blog-Content/</link>
-        <guid isPermaLink="true">http://blog.maisasolutions.com/blog/2015/04/11/How-to-write-Blog-Content/</guid>
+        <link>http://blog.maisasolutions.com/2015/04/11/How-to-write-Blog-Content</link>
+        <guid isPermaLink="true">http://blog.maisasolutions.com/2015/04/11/How-to-write-Blog-Content</guid>
       </item>
     
       <item>
@@ -119,8 +146,8 @@
    &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;44&amp;quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
         <pubDate>Mon, 16 Feb 2015 11:25:55 +0530</pubDate>
-        <link>http://blog.maisasolutions.com/ruby-gem/2015/02/16/Country-lookup-gem/</link>
-        <guid isPermaLink="true">http://blog.maisasolutions.com/ruby-gem/2015/02/16/Country-lookup-gem/</guid>
+        <link>http://blog.maisasolutions.com/2015/02/16/Country-lookup-gem</link>
+        <guid isPermaLink="true">http://blog.maisasolutions.com/2015/02/16/Country-lookup-gem</guid>
       </item>
     
       <item>
@@ -166,8 +193,8 @@ Launch ChromeDriver and connect to it via Selenium Remote&lt;/p&gt;
 &lt;p&gt;Now run your test cases.&lt;/p&gt;
 </description>
         <pubDate>Thu, 05 Feb 2015 11:25:55 +0530</pubDate>
-        <link>http://blog.maisasolutions.com/selenium/2015/02/05/How-to-run-selenium-tests-in-chrome/</link>
-        <guid isPermaLink="true">http://blog.maisasolutions.com/selenium/2015/02/05/How-to-run-selenium-tests-in-chrome/</guid>
+        <link>http://blog.maisasolutions.com/2015/02/05/How-to-run-selenium-tests-in-chrome</link>
+        <guid isPermaLink="true">http://blog.maisasolutions.com/2015/02/05/How-to-run-selenium-tests-in-chrome</guid>
       </item>
     
       <item>
@@ -203,8 +230,8 @@ Launch ChromeDriver and connect to it via Selenium Remote&lt;/p&gt;
 &lt;/div&gt;
 </description>
         <pubDate>Mon, 05 Aug 2013 10:44:38 +0530</pubDate>
-        <link>http://blog.maisasolutions.com/mongodb/2013/08/05/Mongodb-backup-and-restore/</link>
-        <guid isPermaLink="true">http://blog.maisasolutions.com/mongodb/2013/08/05/Mongodb-backup-and-restore/</guid>
+        <link>http://blog.maisasolutions.com/2013/08/05/Mongodb-backup-and-restore</link>
+        <guid isPermaLink="true">http://blog.maisasolutions.com/2013/08/05/Mongodb-backup-and-restore</guid>
       </item>
     
       <item>
@@ -265,8 +292,8 @@ Launch ChromeDriver and connect to it via Selenium Remote&lt;/p&gt;
 &lt;p&gt;Now you&amp;rsquo;ve added your first file to Github! Continue to learn more about how to work with Git.&lt;/p&gt;
 </description>
         <pubDate>Mon, 15 Apr 2013 10:44:38 +0530</pubDate>
-        <link>http://blog.maisasolutions.com/github/2013/04/15/Getting-started-with-git/</link>
-        <guid isPermaLink="true">http://blog.maisasolutions.com/github/2013/04/15/Getting-started-with-git/</guid>
+        <link>http://blog.maisasolutions.com/2013/04/15/Getting-started-with-git</link>
+        <guid isPermaLink="true">http://blog.maisasolutions.com/2013/04/15/Getting-started-with-git</guid>
       </item>
     
       <item>
@@ -274,8 +301,8 @@ Launch ChromeDriver and connect to it via Selenium Remote&lt;/p&gt;
         <description>&lt;iframe src=&quot;https://onedrive.live.com/embed?cid=4883444B527AB856&amp;resid=4883444B527AB856%21144&amp;authkey=AHfcaDH7lrYXHao&amp;em=2&quot; width=&quot;700&quot; height=&quot;600&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;
 </description>
         <pubDate>Sun, 03 Mar 2013 10:44:38 +0530</pubDate>
-        <link>http://blog.maisasolutions.com/rails-security/2013/03/03/application-programming-interface-security/</link>
-        <guid isPermaLink="true">http://blog.maisasolutions.com/rails-security/2013/03/03/application-programming-interface-security/</guid>
+        <link>http://blog.maisasolutions.com/2013/03/03/application-programming-interface-security</link>
+        <guid isPermaLink="true">http://blog.maisasolutions.com/2013/03/03/application-programming-interface-security</guid>
       </item>
     
   </channel>
