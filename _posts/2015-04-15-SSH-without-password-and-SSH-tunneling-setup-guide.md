@@ -46,6 +46,7 @@ Host REMOTE3
 ```
 
 That's it. Now you should be able to ssh to remote hosts without password.
+
 ```ruby
 ssh REMOTE1
 ssh REMOTE2
@@ -53,7 +54,8 @@ ssh REMOTE3
 ```
  
 And setup local port forwarding via ssh tunneling as simple as:
-```
+
+```ruby
 ssh -fNL 8080:localhost:8080 REMOTE3
 ssh -fNL 8080:localhost:8080 REMOTE1
 ```
