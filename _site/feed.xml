@@ -55,6 +55,38 @@
       </item>
     
       <item>
+        <title>How to upload images using Selenium webdriver with ruby</title>
+        <description>&lt;p&gt;There are different ways to handle file uploads with Selenium Webdriver.&lt;/p&gt;
+
+&lt;p&gt;In Ruby, the image cannot be uploaded directly from the system local path. So this can be achieved using AutoIt software.&lt;/p&gt;
+
+&lt;p&gt;Following are the steps to achieve this.&lt;br/&gt;
+1. First you need to install &lt;a href=&quot;https://www.autoitscript.com/site/autoit/downloads/&quot;&gt;AutoIt&lt;/a&gt; and &lt;a href=&quot;https://www.autoitscript.com/site/autoit-script-editor/downloads/&quot;&gt;sciTE4AutoIt3&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;It has a customized Lexer for AutoIt3 which handles the Syntax Highlighting.&lt;/p&gt;
+
+&lt;p&gt;2. Open the sciTEScript Editor and copy the following code.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;WinWaitActive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;File Upload&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+&lt;span class=&quot;no&quot;&gt;Send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;D:\images\m.jpg&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;     &lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Select&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;image&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;ControlClick&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Open&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Button1&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Save it as &amp;ldquo;&lt;b&gt;Test.au3&lt;/b&gt;&amp;rdquo; and run the code using &amp;lsquo;F7&amp;rsquo; key or Click on tools and select the build option.
+After running the script, it will automatically create the &amp;ldquo;.exe&amp;rdquo; file in same folder. &lt;/p&gt;
+
+&lt;p&gt;For example, if the name of the file is Test.au3, the .exe will be generated with the same name but with .exe extension say &amp;ldquo;&lt;b&gt;Test.exe&lt;/b&gt;&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;3. The generated .exe needs to be called in the automation script (Ruby) where the image needs to be uploaded.&lt;/p&gt;
+
+&lt;p&gt;Syntax:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;IO&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;popen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;D:/a/web/U/test.exe&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;readlines&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+        <pubDate>Fri, 17 Apr 2015 11:25:55 +0530</pubDate>
+        <link>http://blog.maisasolutions.com/2015/04/17/How-to-upload-images-using-selenium-webdriver-with-ruby</link>
+        <guid isPermaLink="true">http://blog.maisasolutions.com/2015/04/17/How-to-upload-images-using-selenium-webdriver-with-ruby</guid>
+      </item>
+    
+      <item>
         <title>Hire professional IT solutions for web development solutions</title>
         <description>&lt;p&gt;The advancement in technology has brought about a revolution in the way marketing is done by companies. Businesses which existed in the brick and mortar form are now existing virtually too. In fact the virtual presence of the businesses has increased rapidly over the last decade. Owing to the virtual presence, local based businesses today are gaining customers from all over the world. Because of the online visibility businesses are being marketed more effectively. One further step in this business enhancement is the introduction of mobile developments. In order to be easily accessible and available at any time businesses have come up with apps to reach out their customer more easily.&lt;/p&gt;
 
