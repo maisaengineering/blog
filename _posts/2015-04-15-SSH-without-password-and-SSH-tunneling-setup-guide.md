@@ -36,7 +36,7 @@ Host REMOTE1
 	User chandan
 
 Host REMOTE2
-	Hostname remote1_fullpath
+	Hostname remote2_fullpath
 	IdentityFile ~/.ssh/id_rsa
 	User chandan
 
@@ -45,18 +45,20 @@ Host REMOTE3
 	IdentityFile ~/.ssh/id_rsa
 ```
 
-That’s it. Now you should be able to ssh to remote hosts. Or can do a ssh tunneling as simple as:
+That's it. Now you should be able to ssh to remote hosts without password.
 
 ```ruby
+ssh REMOTE1
+ssh REMOTE2
+ssh REMOTE3
+```
+ 
+And setup local port forwarding via ssh tunneling as simple as:
+
+```ruby
+ssh -fNL 8080:localhost:8080 REMOTE3
 ssh -fNL 8080:localhost:8080 REMOTE1
 ```
 
-following tunnels via REMOTE1. See REMOTE3 connection goes via REMOTE1
-
-```ruby
-ssh -fNL 8080:localhost:8080 REMOTE3 
-```
-
-replace chandan with your ssh user id<br/>REMOTE 1 is a bastion
- 
-Enjoy!
+Be sure to replace chandan with your ssh user name/id.
+<p><b>Happy coding!</p></b>
