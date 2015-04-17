@@ -53,7 +53,7 @@ ssh REMOTE3
 ```
  
 And setup local port forwarding via ssh tunneling as simple as:
-```ruby
+```
 ssh -fNL 8080:localhost:8080 REMOTE3
 ssh -fNL 8080:localhost:8080 REMOTE1
 ```
