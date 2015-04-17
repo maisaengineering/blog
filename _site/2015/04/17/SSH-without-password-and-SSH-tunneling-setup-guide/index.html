@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SSH without password and SSH tunneling setup guide &#8211; Maisa Solutions Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Maisa Solutions is your ideal IT partner offering various Information Technology Services and Products.">
+    <meta name="author" content="Maisa Solutions">
+    <meta name="keywords" content="ssh">
+    <link rel="canonical" href="http://blog.maisasolutions.com/2015/04/17/SSH-without-password-and-SSH-tunneling-setup-guide">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css" type="text/css">
+    <link rel="stylesheet" href="/css/main.css" type="text/css">
+
+    <!-- Fonts -->
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    
+
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="SSH without password and SSH tunneling setup guide">
+    <meta property="og:description" content="Maisa Solutions is your ideal IT partner offering various Information Technology Services and Products.">
+    <meta property="og:url" content="http://blog.maisasolutions.com/2015/04/17/SSH-without-password-and-SSH-tunneling-setup-guide">
+    <meta property="og:site_name" content="Maisa Solutions Blog">
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="favicon-192x192.png?v=2" sizes="192x192">
+    <link rel="icon" type="image/png" href="favicon-160x160.png?v=2" sizes="160x160">
+    <link rel="icon" type="image/png" href="favicon-96x96.png?v=2" sizes="96x96">
+    <link rel="icon" type="image/png" href="favicon-16x16.png?v=2" sizes="16x16">
+    <link rel="icon" type="image/png" href="favicon-32x32.png?v=2" sizes="32x32">
+</head>
+
+<body class="animated fade-in-down">
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://blog.maisasolutions.com" class="site-title"><img src="/images/logo.png"/> </a>
+      <nav class="site-nav right">
+        <a href="/about/">About</a>
+<a href="/contact/">Contact</a>
+
+      </nav>
+      <div class="clearfix"></div>
+      
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        <!-- 
+ -->
+
+<div class="post-header mb2">
+  <h1>SSH without password and SSH tunneling setup guide</h1>
+  <span class="post-meta">by<span class="post_author_name"> Chandan</span>, Apr 17 2015</span><br>
+  
+  <!-- <span class="post-meta small">1 minute read</span> -->
+</div>
+
+<article class="post-content">
+  <p>SSH without password and SSH tunneling setup in 3 steps</p>
+
+<p>1. Create ssh keys on host, or use existing keys if you have them already.</p>
+
+<p>Example: </p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span> <span class="o">-</span><span class="n">t</span> <span class="n">rsa</span> <span class="o">-</span><span class="n">C</span> <span class="s2">&quot;your_email@example.com&quot;</span>
+</code></pre></div>
+<p>2. Add host pub key to authorized keys entry to all remote hosts(remote 0, remote 1, remote 2, etc)</p>
+
+<p>Example:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># a single liner sample</span>
+<span class="n">cat</span> <span class="o">~</span><span class="sr">/.ssh/i</span><span class="n">d_rsa</span><span class="o">.</span><span class="n">pub</span> <span class="o">|</span> <span class="n">ssh</span> <span class="vg">$REMOTE</span> <span class="o">-</span><span class="n">t</span> <span class="err">&#39;</span><span class="n">mkdir</span> <span class="o">-</span><span class="nb">p</span> <span class="o">~</span><span class="sr">/.ssh; touch ~/</span><span class="o">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">authorized_keys</span><span class="p">;</span> <span class="n">cat</span> <span class="o">&gt;&gt;</span> <span class="o">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">authorized_keys</span><span class="err">’</span>
+</code></pre></div>
+<p>3. On your host VM, add remote host SSH configurations to: ~/.ssh/config </p>
+
+<p>Example:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># these goes into ~/.ssh/config</span>
+<span class="no">Host</span> <span class="no">REMOTE1</span>
+    <span class="no">Hostname</span> <span class="n">remote1_fullpath</span>
+    <span class="no">IdentityFile</span> <span class="o">~</span><span class="sr">/.ssh/i</span><span class="n">d_rsa</span>
+    <span class="no">User</span> <span class="n">chandan</span>
+
+<span class="no">Host</span> <span class="no">REMOTE2</span>
+    <span class="no">Hostname</span> <span class="n">remote1_fullpath</span>
+    <span class="no">IdentityFile</span> <span class="o">~</span><span class="sr">/.ssh/i</span><span class="n">d_rsa</span>
+    <span class="no">User</span> <span class="n">chandan</span>
+
+<span class="no">Host</span> <span class="no">REMOTE3</span>
+    <span class="no">ProxyCommand</span> <span class="n">ssh</span> <span class="no">REMOTE1</span> <span class="o">-</span><span class="n">W</span> <span class="o">%</span><span class="ss">h</span><span class="p">:</span><span class="o">%</span><span class="nb">p</span> 
+    <span class="no">IdentityFile</span> <span class="o">~</span><span class="sr">/.ssh/i</span><span class="n">d_rsa</span>
+</code></pre></div>
+<p>That’s it. Now you should be able to ssh to remote hosts. Or can do a ssh tunneling as simple as:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">ssh</span> <span class="o">-</span><span class="n">fNL</span> <span class="mi">8080</span><span class="ss">:localhost</span><span class="p">:</span><span class="mi">8080</span> <span class="no">REMOTE1</span>
+</code></pre></div>
+<p>following tunnels via REMOTE1. See REMOTE3 connection goes via REMOTE1</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">ssh</span> <span class="o">-</span><span class="n">fNL</span> <span class="mi">8080</span><span class="ss">:localhost</span><span class="p">:</span><span class="mi">8080</span> <span class="no">REMOTE3</span> 
+</code></pre></div>
+<p>replace chandan with your ssh user id<br/>REMOTE 1 is a bastion</p>
+
+<p>Enjoy!</p>
+
+</article>
+
+
+
+
+
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname  = 'maisasolutions';
+    var disqus_identifier = '/2015/04/17/SSH-without-password-and-SSH-tunneling-setup-guide';
+
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="p2 wrap">
+        <div class="measure mt1 center">
+            <p class="post-summary">
+                Have an idea? Let us help you make it real! Our IT experts are <a href="/contact">here</a> to work with you.
+            </p>
+            <p align="center">
+                <small>
+                    &#0169;2015 Miasa&#0153; Solutions All rights reserved.
+                </small>
+            </p>
+        </div>
+    </div>
+</footer>
+
+
+
+</body>
+</html>

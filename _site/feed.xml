@@ -7,6 +7,54 @@
     <atom:link href="http://blog.maisasolutions.com/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>SSH without password and SSH tunneling setup guide</title>
+        <description>&lt;p&gt;SSH without password and SSH tunneling setup in 3 steps&lt;/p&gt;
+
+&lt;p&gt;1. Create ssh keys on host, or use existing keys if you have them already.&lt;/p&gt;
+
+&lt;p&gt;Example: &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;ssh&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keygen&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rsa&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;your_email@example.com&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;2. Add host pub key to authorized keys entry to all remote hosts(remote 0, remote 1, remote 2, etc)&lt;/p&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# a single liner sample&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;cat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/.ssh/i&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d_rsa&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pub&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ssh&lt;/span&gt; &lt;span class=&quot;vg&quot;&gt;$REMOTE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/.ssh; touch ~/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ssh&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;authorized_keys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ssh&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;authorized_keys&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;’&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;3. On your host VM, add remote host SSH configurations to: ~/.ssh/config &lt;/p&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# these goes into ~/.ssh/config&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Host&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;REMOTE1&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;Hostname&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;remote1_fullpath&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;IdentityFile&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/.ssh/i&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d_rsa&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chandan&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Host&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;REMOTE2&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;Hostname&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;remote1_fullpath&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;IdentityFile&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/.ssh/i&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d_rsa&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chandan&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Host&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;REMOTE3&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;ProxyCommand&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ssh&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;REMOTE1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;W&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; 
+    &lt;span class=&quot;no&quot;&gt;IdentityFile&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/.ssh/i&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d_rsa&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;That’s it. Now you should be able to ssh to remote hosts. Or can do a ssh tunneling as simple as:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;ssh&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fNL&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8080&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:localhost&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8080&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;REMOTE1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;following tunnels via REMOTE1. See REMOTE3 connection goes via REMOTE1&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;ssh&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fNL&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8080&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:localhost&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8080&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;REMOTE3&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;replace chandan with your ssh user id&lt;br/&gt;REMOTE 1 is a bastion&lt;/p&gt;
+
+&lt;p&gt;Enjoy!&lt;/p&gt;
+</description>
+        <pubDate>Fri, 17 Apr 2015 11:25:55 +0530</pubDate>
+        <link>http://blog.maisasolutions.com/2015/04/17/SSH-without-password-and-SSH-tunneling-setup-guide</link>
+        <guid isPermaLink="true">http://blog.maisasolutions.com/2015/04/17/SSH-without-password-and-SSH-tunneling-setup-guide</guid>
+      </item>
+    
+      <item>
         <title>Hire professional IT solutions for web development solutions</title>
         <description>&lt;p&gt;The advancement in technology has brought about a revolution in the way marketing is done by companies. Businesses which existed in the brick and mortar form are now existing virtually too. In fact the virtual presence of the businesses has increased rapidly over the last decade. Owing to the virtual presence, local based businesses today are gaining customers from all over the world. Because of the online visibility businesses are being marketed more effectively. One further step in this business enhancement is the introduction of mobile developments. In order to be easily accessible and available at any time businesses have come up with apps to reach out their customer more easily.&lt;/p&gt;
 
