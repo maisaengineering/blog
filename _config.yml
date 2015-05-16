@@ -3,8 +3,8 @@ title:       Maisa Solutions Blog
 email:       contact@maisasolutions.com
 author:      Maisa Solutions
 description: "Maisa Solutions is your ideal IT partner offering various Information Technology Services and Products."
-baseurl:     "/site-maisa-solutions-blog" # the subpath of your site, e.g. /blog/
-url:         "http://blog.maisasolutions.com"
+baseurl:     "/blog" # the subpath of your site, e.g. /blog/
+url:         "http://www.maisasolutions.com"
 
 # Google analytics
 google_analytics:
