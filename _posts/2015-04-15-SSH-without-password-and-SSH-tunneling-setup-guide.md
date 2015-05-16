@@ -7,7 +7,7 @@ categories: SSH
 author: Chandan
 ---
 
-SSH without password and SSH tunneling setup in 3 steps
+SSH without password and SSH tunneling setup in 3 easy steps
 
 <p>1. Create ssh keys on host, or use existing keys if you have them already.</p>
 
