@@ -13,10 +13,14 @@ Follow instructions as listed on https://developers.facebook.com/docs/ios/gettin
 
 Atleast with latest Xcode(6+), iOS application path changed. 
 
-*Old lookup*
-ditto -ck --sequesterRsrc --keepParent `ls -1 -d -t ~/Library/Developer/Xcode/DerivedData/*/Build/Products/*-iphonesimulator/*.app | head -n 1` path/to/YourApp.zip
+## OLD (borken)
+```
+ditto -ck --sequesterRsrc --keepParent `ls -1 -d -t ~/Library/Developer/Xcode/DerivedData/*/Build/Products/*-iphonesimulator/*.app  | head -n 1` path/to/YourApp.zip
+```
 
-*New lookup*
+## NEW
+```
 ditto -ck --sequesterRsrc --keepParent `ls -1 -d -t ~/Library/Developer/CoreSimulator/Devices/*/data/Containers/Bundle/Application/*/*.app| head -n 1` path/to/YourApp.zip
+```
 
-Rest of the steps are same as found in FB guidelines.
+Rest are same.
