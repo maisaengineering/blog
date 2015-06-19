@@ -9,18 +9,18 @@ author: Chandan
 
 If you are in a process of submitting your iOS app for Facebook review with simulator build, read on...
 
-Follow instructions as listed on https://developers.facebook.com/docs/ios/getting-started till "Create a Simulator Build"
+Follow instructions as per [Facebook Simulator Build](https://developers.facebook.com/docs/ios/getting-started) **till* "Create a Simulator Build".
 
-Atleast with latest Xcode(6+), iOS application path changed. 
+Since atleast from latest Xcode(6+), installed app path changed on Simulator build. We have to look for installed app in new location.
 
-### OLD (broken)
+###### OLD LOCATION (broken)
 ```
 ditto -ck --sequesterRsrc --keepParent `ls -1 -d -t ~/Library/Developer/Xcode/DerivedData/*/Build/Products/*-iphonesimulator/*.app  | head -n 1` path/to/YourApp.zip
 ```
 
-### NEW
+###### NEW LOCATION (works)
 ```
 ditto -ck --sequesterRsrc --keepParent `ls -1 -d -t ~/Library/Developer/CoreSimulator/Devices/*/data/Containers/Bundle/Application/*/*.app| head -n 1` path/to/YourApp.zip
 ```
 
-Rest are same.
+Rest of the instructions works fine.
