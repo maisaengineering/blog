@@ -9,7 +9,7 @@ author: Chandan
 
 If you are in a process of submitting your iOS app for Facebook review with simulator build, read on...
 
-Follow instructions as per [Facebook Simulator Build](https://developers.facebook.com/docs/ios/getting-started) **till* "Create a Simulator Build".
+Follow instructions as per [Facebook Simulator Build](https://developers.facebook.com/docs/ios/getting-started) **till** "Create a Simulator Build".
 
 Since atleast from latest Xcode(6+), installed app path changed on Simulator build. We have to look for installed app in new location.
 
