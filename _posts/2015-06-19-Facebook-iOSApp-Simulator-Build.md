@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Facebook-iOS Application Simulator Build
-date:       2015-07-19 04:47:59
+date:       2015-06-19 04:47:59
 summary:    
 categories: iOS, Facebook
 author: Chandan
