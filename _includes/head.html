@@ -2,7 +2,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{% if page.title %}{{ page.title }} &#8211; {% endif %}{{ site.title }}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{% if page.summary %}{{ page.summary }}{% else %}{{ site.description }}{% endif %}">
     <meta name="author" content="{{ site.author }}">
     {% if page.categories %}<meta name="keywords" content="{{ page.categories | join: ', ' }}">{% endif %}
@@ -27,18 +26,23 @@
     <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
     <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-    <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:site_name" content="Maisa Solutions">
+    <meta content='{{site.baseurl}}/images/logo_icon.png' property='og:image'>
 
-    <!-- Icons -->
-    <link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="apple-touch-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png">
+    <meta content='@maisasolutions' name='twitter:site'>
+    <meta content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" name='twitter:title'>
+    <meta content='{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}' name='twitter:description'>
+    <meta content='{{site.baseurl}}/images/logo_icon.png' name='twitter:image'>
+
+    <meta content='{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}' itemprop='name'>
+    <meta content='{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}' itemprop='description'>
+    <meta content='{{site.baseurl}}/images/logo_icon.png' itemprop='image'>
+
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'>
+    <meta content='yes' name='apple-mobile-web-app-capable'>
+    <meta content='user-scalable=no, width=640' name='viewport'>
+    <meta content='SamePinch' name='apple-mobile-web-app-title'>
+
     <link rel="icon" type="image/png" href="{{site.baseurl}}/favicon-192x192.png?v=2" sizes="192x192">
     <link rel="icon" type="image/png" href="{{site.baseurl}}/favicon-160x160.png?v=2" sizes="160x160">
     <link rel="icon" type="image/png" href="{{site.baseurl}}/favicon-96x96.png?v=2" sizes="96x96">
