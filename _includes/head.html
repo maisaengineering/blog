@@ -27,16 +27,16 @@
     <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
     <meta property="og:site_name" content="Maisa Solutions">
-    <meta content='{{site.baseurl}}/images/logo_icon.png' property='og:image'>
+    <meta content='{{site.url}}{{site.baseurl}}/images/logo_icon.png' property='og:image'>
 
     <meta content='@maisasolutions' name='twitter:site'>
     <meta content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" name='twitter:title'>
     <meta content='{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}' name='twitter:description'>
-    <meta content='{{site.baseurl}}/images/logo_icon.png' name='twitter:image'>
+    <meta content='{{site.url}}{{site.baseurl}}/images/logo_icon.png' name='twitter:image'>
 
     <meta content='{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}' itemprop='name'>
     <meta content='{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}' itemprop='description'>
-    <meta content='{{site.baseurl}}/images/logo_icon.png' itemprop='image'>
+    <meta content='{{site.url}}{{site.baseurl}}/images/logo_icon.png' itemprop='image'>
 
     <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'>
     <meta content='yes' name='apple-mobile-web-app-capable'>
