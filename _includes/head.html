@@ -25,7 +25,17 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
-    <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
+
+    {% if page.description %}
+        <meta name="og:description" content="{{ site.description | truncatewords: 100 | strip_newlines | escape_once }}" />
+        <meta name="twitter:description" content="{{ site.description | truncatewords: 100 | strip_newlines | escape_once }}" />
+        <meta itemprop="description" content="{{ site.description | truncatewords: 100 | strip_newlines | escape_once }}" />
+    {% else %}
+        <meta name="og:description" content="{{ content | strip_html | truncatewords: 100 | strip_newlines | escape_once }}" />
+        <meta name="twitter:description" content="{{ content | strip_html | truncatewords: 100 | strip_newlines | escape_once }}" />
+        <meta itemprop="description" content="{{ content | strip_html | truncatewords: 100 | strip_newlines | escape_once }}" />
+    {% endif %}
+
     <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
     <meta property="og:site_name" content="Maisa Solutions" />
     <meta content='{{site.url}}{{site.baseurl}}/images/logo_icon.png' property='og:image' />
@@ -34,17 +44,15 @@
 
     <meta content='@maisasolutions' name='twitter:site'>
     <meta content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" name='twitter:title'>
-    <meta content='{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}' name='twitter:description'>
     <meta content='{{site.url}}{{site.baseurl}}/images/logo_icon.png' name='twitter:image'>
 
     <meta content='{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}' itemprop='name'>
-    <meta content='{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}' itemprop='description'>
     <meta content='{{site.url}}{{site.baseurl}}/images/logo_icon.png' itemprop='image'>
 
     <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'>
     <meta content='yes' name='apple-mobile-web-app-capable'>
     <meta content='user-scalable=no, width=640' name='viewport'>
-    <meta content='SamePinch' name='apple-mobile-web-app-title'>
+    <meta content='MaisaSolutions' name='apple-mobile-web-app-title'>
 
     <link rel="icon" type="image/png" href="{{site.baseurl}}/favicon-192x192.png?v=2" sizes="192x192">
     <link rel="icon" type="image/png" href="{{site.baseurl}}/favicon-160x160.png?v=2" sizes="160x160">
