@@ -46,7 +46,7 @@ share_stumbleupon: false
 markdown:     redcarpet
 redcarpet:
   extensions: ['smart', 'tables', 'with_toc_data']
-permalink:    /:year/:month/:day/:title
+permalink:    /:title
 paginate:     10
 sass:
   compressed: true
